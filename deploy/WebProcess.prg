@@ -354,8 +354,7 @@ IF Request.IsPostBack()
    ELSE          
        poError.Message = "Please correct the following errors..."
        poError.Errors = loErrors
-       * poError.Message =  loErrors.ToHtml()
-       
+       poError.Message =  loErrors.ToHtml()       
    ENDIF
 ENDIF
 

@@ -45,9 +45,9 @@
 
         <!-- top right nav menu - .hidable for options that hide on small sizes -->
         <nav class="banner-menu-top float-right">            
-            <a href="#" class="hidable">
+            <a href="https://webconnection.west-wind.com/docs/_0nb1al6fm.htm" class="hidable">
                 <i class="fa fa-book"></i>
-                Link
+                Docs
             </a>
             <a href="~/">
                 <i class="fas fa-home"></i>                
