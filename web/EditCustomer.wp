@@ -1,0 +1,279 @@
+<% * VS Addin Comment: SourceFile="~\..\deploy\WebProcess.PRG" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Page Title</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="touch-icon.png" />
+
+    <link rel="icon" href="~/touch-icon.png" />
+    <meta name="msapplication-TileImage" content="~/touch-icon.png" />
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />    
+    <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/application.css" rel="stylesheet" />
+    <style>
+        ul { margin: 0;}
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <!-- Slideout Menu Toggle - Hamburger menu -->
+        <a class="slide-menu-toggle-open no-slide-menu"
+           title="More...">
+            <i class="fas fa-bars    "></i>
+        </a>
+
+        <!-- Icon and Company Logo -->
+        <div class="title-bar no-slide-menu">
+            <a href="~/">
+                <img class="title-bar-icon" src="~/images/Icon.png" />
+                <div style="float: left; margin: 4px 5px; line-height: 1.0">
+                    <i style="color: #0092d0; font-size: 0.9em; font-weight: bold;">west wind</i><br />
+                    <i style="color: whitesmoke; font-size: 1.65em; font-weight: 600;">Web Demo</i>
+                </div>
+            </a>
+        </div>
+
+        <!-- top right nav menu - .hidable for options that hide on small sizes -->
+        <nav class="banner-menu-top float-right">            
+            <a href="#" class="hidable">
+                <i class="fa fa-book"></i>
+                Link
+            </a>
+            <a href="~/">
+                <i class="fas fa-home"></i>                
+                Home
+            </a>            
+        </nav>
+    </div>
+
+
+    <div id="MainView">
+
+        <div class="container">
+            <div class="btn-group float-right btn-group-sm">
+                <a class="btn btn-secondary" href="ShowCustomer.wp?id=<%= pcId %>"><i class="far fa-eye"></i> Display</a>
+                <a class="btn btn-success" href="CustomerList.wp"><i class="fas fa-list"></i> Customers</a>  
+            </div>
+
+            <h3 class="page-header-text">
+                <i class='fa fa-edit'></i> Edit Customer
+            </h3>
+            
+            
+            <!-- Conditionally display an error message  -->
+            <%= HtmlErrorDisplay(poError) %>
+            <!-- <% if !Empty(pcErrorMsg) %>
+                <div class="alert alert-warning">   
+                    <i class="fa fa-warning error"></i>
+                    <%= pcErrorMsg %>
+                </div>
+            <% endif %> -->
+            
+            <form action="editcustomer.wp" method="POST"
+                  class="form-horizontal container" 
+                  style="padding: 0 15px 30px;">
+            
+                <div class="form-group row">
+                    <label class="col-sm-2">Company:</label>
+                    <div class="col-sm-8">
+                        <input name="Company" id="Company" 
+                               value="<%= poCustomer.Company %>" 
+                               class="form-control" 
+                               placeholder="Enter a company name" />
+                        <%= HtmlBindingError("Company",poError.Errors) %>                                
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label class="col-sm-2"> Name:</label>
+                    <div class="col-sm-4">
+                        <input name="FirstName" value="<%= Request.FormOrValue("FirstName", poCustomer.FirstName) %>"
+                               class="form-control"
+                               placeholder="Enter the first name"
+                               />
+                    </div>
+                    <div class="col-sm-4">
+                        <input name="LastName" value="<%= Request.FormOrValue("LastName",poCustomer.LastName) %>"
+                               class="form-control"
+                               placeholder="Enter the last name" />
+                    </div>
+                </div>             
+            
+                <div class="form-group row">
+                    <label class="col-sm-2">Address:</label>
+                    <div class="col-sm-8">
+                         <textarea name="Address" 
+                                  class="form-control"
+                                  placeholder="Enter the full address"
+                            ><%= poCustomer.Address %></textarea>
+                            <%= HtmlBindingError("Address",poError.Errors) %>       
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label class="col-sm-2">Email:</label>
+                    <div class="col-sm-8">
+                        <%= HtmlTextBox("Email",poCustomer.Email,[class="form-control" placeholder="Enter the email address"]) %>
+                        <%= HtmlBindingError("Email",poError.Errors) %>                                      
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label class="col-sm-2">Bill Rate:</label>
+                    <div class="col-sm-8">
+                        <input name="BillRate" value="<%= poCustomer.BillRate %>"
+                               class="form-control"
+                               placeholder="Enter the billing rate in dollars"/>
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label for="Entered" class="col-sm-2">Entered:</label>
+                    <div class="col-sm-8">
+                        <%= HtmlDateTextBox("Entered",poCustomer.Entered,[class="form-control" ])  %>
+                        <%= HtmlBindingError("Entered",poError.Errors) %>
+                    </div>
+                </div>
+
+            
+                <hr/>
+            
+                <button type="submit" name="btnSubmit" class="btn btn-primary">
+                    <i class="fa fa-check"></i> Save Customer
+                </button>
+                
+                <input type="hidden" name="id" value="<%= poCustomer.id %>" />
+            </form>
+        </div> <!-- container -->
+        
+    </div> <!-- end #MainView -->
+
+
+    <footer>
+        <a href="http://www.west-wind.com/" class="float-right">
+            <img src="~/images/WestwindText.png" />
+        </a>
+        <small>&copy; Company, <%= YEAR(Date()) %></small>
+    </footer>
+
+
+
+    <!-- slide in menu - Remove if you don't use it --> 
+      <nav class="slide-menu">
+        <div style="padding: 10px 10px 10px 3px;">
+
+            <a class="disabled">
+                <i class="fa fa-home"></i>
+                Main Menu
+            </a>
+
+            <a href="~/">
+                <i class="fa fa-home"></i>
+                Home
+            </a>
+
+            <a href="#" class="indented">
+                <i class="fas fa-newspaper-o"></i>
+                Sub Link
+            </a>
+            <a href="#" class="indented">
+                <i class="fas fa-newspaper-o"></i>
+                Sub Link 2
+            </a>
+
+            <a href="#">
+                <i class="fa fa-unlock-alt"></i>
+                Login
+            </a>
+        </div>
+    </nav>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!--
+        Add these only if you use Bootstrap dropdowns or modals
+        And if you do: don't add here, only to content pages that actually need it
+        <% section="scripts" %>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <% endsection %>
+    -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // toggle menu, handle menu click and outside click to close
+        $(document).on("click",
+            ".slide-menu-toggle-open,.slide-menu-toggle-close," +
+            ".slide-menu a, #SamplesLink,.slide-menu",
+            function () {
+                $(".slide-menu").toggleClass("active");
+            });
+    </script>    
+
+    <script src="~/lib/moment/min/moment.min.js"></script>
+    <link href="~/lib/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/lib/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        // Add each control Id to date time picker 
+        $("#Entered").datetimepicker({
+            format: "MM/DD/YYYY",  // Date format
+        });      
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

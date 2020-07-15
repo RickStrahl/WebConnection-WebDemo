@@ -197,6 +197,7 @@ THIS.cCOMReleaseUrl=THIS.oConfig.cComReleaseUrl
 *** Add any of YOUR data paths and code 
 *** SET DEFAULT is at EXE/Start path by default
 SET PATH TO "..\Data" ADDITIVE   && optional
+SET PATH TO ".\Data" ADDITIVE  
 
 *** Force .NET version to 4.0
 *DO wwDotnetBridge

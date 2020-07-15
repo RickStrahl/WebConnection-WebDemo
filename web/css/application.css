@@ -174,7 +174,7 @@ label {
     font-weight: 600;
 }
 .badge-super {
-    font-size: 0.5em;  
+    font-size: 0.4em;  
     vertical-align: super;
 }
 
@@ -454,13 +454,13 @@ a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
 /* West Wind Main Page Layout */
 
 #MainView {
-    margin-top: 70px;
+    margin-top: 90px;
     width: 100%;       
 }
 #MainView.fixed {
     position: absolute;
     left: 0;
-    top: 60px;
+    top: 90px;
     bottom: 0;
     padding-top: 10px;
     width: 100%;
