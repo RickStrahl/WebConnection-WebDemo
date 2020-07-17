@@ -56,9 +56,14 @@ Write-Host $appname
 $zipfile = "$tgt\build\$appname"  + "_Packaged.zip"
 Write-Host $zipfile
 
-Exit-PSHostProcess
-
-# add 7zip to your path or in this folder for this to work
-& 7z a -r $zipfile  "*.*"
+if (Get-Command "7z.exe" -ErrorAction SilentlyContinue) 
+{
+    # add 7zip to your path or in this folder for this to work
+    & 7z a -r $zipfile  "*.*"
+}
+else 
+{
+    Write-Host "7z.exe - 7zip is not available. No zip file file was created." -ForegroundColor Yellow
+}
 
 cd $curdir
