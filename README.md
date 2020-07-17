@@ -56,6 +56,16 @@ Adjust the paths as needed to point at `VFP9.exe` and the location of the `confi
 
 Start FoxPro using this shortcut.
 
+As a quicker alternative you can also run this PowerShell file in the Project Root:
+
+```ps
+Start-FoxPro-IDE-in-Project.ps1
+```
+
+This has the same effect as the shortcut, but running PowerShell isn't as convenient as a short cut, because by default PowerShell won't execute from Explorer and can't easily be pinned to a shortcut. 
+
+Either choice works.
+
 ### Configure the Web Server
 Depending on what Web Server you use you'll need to configure the application.
 
