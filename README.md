@@ -36,6 +36,14 @@ Alternately you can use the GitHub **Download as Zip File** button to download t
 
 The location can be anywhere, but that's the default location for projects where Web Connection creates new projects.
 
+Make sure there's a folder called:
+
+```ps
+\Deploy\Temp
+```
+
+and if it doesn't exist create it.
+
 ### Fix the Startup Shortcut
 It's important that you start FoxPro in the correct folder, so that `config.fpw` can set up the environment properly. The easiest way to do this is to fix the Shortcut `Webdemo - Start FoxPro IDE with Web Connection`.
 
@@ -101,18 +109,7 @@ Once changed you can then just use `Launch()` with the server you want to use.
 
 
 ## Start the Application
-To run the application, make sure you start FoxPro in the `Deploy` folder of the project - preferrably using the shortcut as mentioned above.
-
-### Create the Temp Folder
-The GitHub Repository doesn't include the empty Temp folder because the content is excluded from syncing.
-
-To create the temp folder in FoxPro in the `Deploy` folder:
-
-```foxpro
-MD .\Temp
-```
-
-Alternately you create the folder using Explorer in `\WebConnectionProjects\WebDemo\Deploy`.
+To run the application, make sure you start FoxPro in the `Deploy` folder of the project - preferably using the shortcut as mentioned above.
 
 ### Launch the Application
 From the IDE
