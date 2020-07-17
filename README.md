@@ -31,7 +31,7 @@ git clone https://github.com/RickStrahl/WebConnection-WebDemo.git WebDemo
 Alternately you can use the GitHub **Download as Zip File** button to download the zip file and unpack in this folder:
 
 ```ps
-\WebConnection\WebDemo
+\WebConnectionProjects\WebDemo
 ```
 
 The location can be anywhere, but that's the default location for projects where Web Connection creates new projects.
