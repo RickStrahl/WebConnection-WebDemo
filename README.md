@@ -1,12 +1,17 @@
 # Web Connection Step By Step Samples
 
-This repository contains the fully completed samples for the [Step By Step guides in the West Wind Web Connection documentation](http://www.west-wind.com/webconnection/docs/?page=_0nb1al6fm.htm).
-
+This repository contains the fully completed samples for simple demo application described in the [Step By Step guide in the West Wind Web Connection documentation](http://www.west-wind.com/webconnection/docs/?page=_0nb1al6fm.htm).
 
 * **[Step by Step: Getting Started](http://www.west-wind.com/webconnection/docs/?page=_0nb1al6fm.htm)**  
 This is the basic walk-through of using Web Connection to get started, create a new project and run a number of data operations using mostly code based logic.
 
-## Setup
+This project's primary purpose is for reference. I recommend you go through the Walk Through explicitly and follow the steps to build the project and examples as you go.
+
+Use this project as reference, to compare code and HTML markup and to pick up some of the larger HTML markup pages without having to type in all that text.
+
+You can also run this project, but in order to do this you'll need to make sure that the project is configured.
+
+## Project Setup
 To set up this project you'll need to:
 
 * Clone or Download this project
