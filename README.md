@@ -98,9 +98,23 @@ lcServerType = "WEBCONNECTIONWEBSERVER"  && "IIS", "IISEXPRESS", "IISHANDLER"
 
 Once changed you can then just use `Launch()` with the server you want to use.
 
+
+
 ## Start the Application
 To run the application, make sure you start FoxPro in the `Deploy` folder of the project - preferrably using the shortcut as mentioned above.
 
+### Create the Temp Folder
+The GitHub Repository doesn't include the empty Temp folder because the content is excluded from syncing.
+
+To create the temp folder in FoxPro in the `Deploy` folder:
+
+```foxpro
+MD .\Temp
+```
+
+Alternately you create the folder using Explorer in `\WebConnectionProjects\WebDemo\Deploy`.
+
+### Launch the Application
 From the IDE
 
 ```foxpro
