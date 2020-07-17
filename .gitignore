@@ -18,11 +18,12 @@ web/**/*.fxp
 #Web Connection
 wwrequestlog.*
 wwsession.*
+__CodeUpdate.html
+_CodeUpdate.html
 deploy/temp/**/*.*
 !deploy/temp/_placeholder.txt
 bower_components
 node_modules
-build
 .idea
 .vs
 .vscode
